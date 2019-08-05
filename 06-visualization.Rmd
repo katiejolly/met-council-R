@@ -1,3 +1,6 @@
 # Visualization
 
+We will start with univariate visualization to learn the syntax, and then later move into more complex multivariate visualizations. 
+
+
 
