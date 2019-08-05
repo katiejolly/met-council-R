@@ -5,16 +5,16 @@ R as a language on its own is useful, but the open-source nature of R means that
 For this tutorial, you'll need a few main packages. Type (don't copy/paste) this code into your *console* (see image below). Click "OK" if it prompts you to restart R. This will only restart the underlying R engine, not your RStudio interface. 
 
 ```{r eval=FALSE}
-install.packages(c("knitr", "tidyverse", "fivethirtyeight", "rmarkdown"))
+install.packages(c("knitr", "tidyverse", "devtools", "rmarkdown"))
 ```
 
 
 You can check that your packages installed correctly by loading the libraries into your R session.
 
-```{r}
+```{r message = FALSE, warning = FALSE}
 library(knitr)
 library(tidyverse)
-library(fivethirtyeight)
+library(devtools)
 library(rmarkdown)
 ```
 

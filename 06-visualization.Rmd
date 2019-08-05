@@ -2,5 +2,52 @@
 
 We will start with univariate visualization to learn the syntax, and then later move into more complex multivariate visualizations. 
 
+R has some built-in plotting ability. It's good to recognize the syntax, but it's not super common to see "in-the-wild" these days.
 
+## Base R plotting
+
+R can make histograms:
+
+```{r}
+hist(nice_ride_2018$tripduration) # this one isn't great because the distribution is so skewed
+```
+
+And bar plots:
+
+```{r}
+barplot(table(nice_ride_2018$usertype), main = "User Type") 
+
+barplot(table(nice_ride_2018$bike_type), main = "Bike Type")
+```
+
+But base R plots are hard to customize and an inconsistent syntax. There's general agreement that they're not the best way to plot data in R so we aren't going to talk much about it.
+
+## ggplot2
+
+`ggplot2` is without competiton in the graphics in R world. Not only is it the most popular plotting package, it's one of the most popular packages, period. It is included in the tidyverse, which we already loaded. 
+
+ggplot uses the "grammar of graphics" to layer information onto plots. Each plot has the same general structure which makes it easy once you learn the structure. 
+
+For example, let's recreate the bar plot of user types from above.
+
+We will layer on the information in stages.
+
+```{r}
+ggplot(nice_ride_2018) # set up our plotting area 
+```
+
+```{r}
+ggplot(nice_ride_2018, aes(x = usertype)) # set up our axes
+```
+
+```{r}
+ggplot(nice_ride_2018, aes(x = usertype)) + 
+  geom_bar() # add the geoms
+```
+
+```{r}
+ggplot(nice_ride_2018, aes(x = usertype)) + 
+  geom_bar() +
+  labs(title = "User Types") # add a title
+```
 

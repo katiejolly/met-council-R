@@ -164,85 +164,104 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><code>bikedata</code> to share data about certain bikeshare systems</p></li>
 <li><p><code>ecoengine</code> to share data from the Berkley natural history museum</p></li>
 </ul>
-<p>We will use the data on diversity in <a href="https://fivethirtyeight.com/features/straight-outta-compton-is-the-rare-biopic-not-about-white-dudes/">biopics from FiveThirtyEight</a>.</p>
+<p>We will use the data the MN niceride system. I put the data in a package so it’s easy to use. You can install it by typing <code>install_github(&quot;katiejolly/metcouncilR&quot;)</code> in your console.</p>
 <div id="try-it-out-1" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Try it out</h3>
 <p>In your R markdown, fill in the following code to load your library:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">___</span>(fivethirtyeight)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">___</span>(metcouncilR)</code></pre></div>
 <p>To pull a particular dataset from this package, we can use the <code>data()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;biopics&quot;</span>) <span class="co"># biopics dataset</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;nice_ride_2018&quot;</span>) <span class="co"># niceride dataset</span></code></pre></div>
 <p>You should now see it in your global working environment.</p>
-<p><img src="images/05-env.PNG" width="362" /></p>
+<p>I’ve written documentation for this data that you can see in the help pane in RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;nice_ride_2018&quot;</span>)</code></pre></div>
 <p>There are also a few different ways to get quick summaries of the data.</p>
 <p>First, you can check the dimensions to get the number of rows and columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(biopics)</code></pre></div>
-<pre><code>## [1] 761  14</code></pre>
-<p>What function would you use to get just the number of columns?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">___</span>(biopics)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
+<pre><code>## [1] 412423     16</code></pre>
+<p>What function would you use to get just the number of columns? (Google it.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">___</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
 <p>We can also print the first 6 rows of the data with the <code>head()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(biopics)</code></pre></div>
-<pre><code>## # A tibble: 6 x 14
-##   title site  country year_release box_office director number_of_subje~
-##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt;
-## 1 10 R~ tt00~ UK              1971         NA Richard~                1
-## 2 12 Y~ tt20~ US/UK           2013   56700000 Steve M~                1
-## 3 127 ~ tt15~ US/UK           2010   18300000 Danny B~                1
-## 4 1987  tt28~ Canada          2014         NA Ricardo~                1
-## 5 20 D~ tt01~ US              1998     537000 Myles B~                1
-## 6 21    tt04~ US              2008   81200000 Robert ~                1
-## # ... with 7 more variables: subject &lt;chr&gt;, type_of_subject &lt;chr&gt;,
-## #   race_known &lt;chr&gt;, subject_race &lt;chr&gt;, person_of_color &lt;lgl&gt;,
-## #   subject_sex &lt;chr&gt;, lead_actor_actress &lt;chr&gt;</code></pre>
-<p>How can we modify this code to print the first <strong>10</strong> rows instead?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(biopics, <span class="dt">__ =</span> ___)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
+<pre><code>## # A tibble: 6 x 16
+##   tripduration start_time          end_time            start_station_id
+##          &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;                         &lt;dbl&gt;
+## 1         1373 2018-04-24 16:03:04 2018-04-24 16:25:57              170
+## 2         1730 2018-04-24 16:38:40 2018-04-24 17:07:31                2
+## 3          547 2018-04-24 17:51:10 2018-04-24 18:00:17               13
+## 4          856 2018-04-24 18:50:05 2018-04-24 19:04:22               94
+## 5          455 2018-04-25 08:49:05 2018-04-25 08:56:40               13
+## 6         1557 2018-04-27 11:57:03 2018-04-27 12:23:01               43
+## # ... with 12 more variables: start_station_name &lt;chr&gt;,
+## #   start_station_latitude &lt;dbl&gt;, start_station_longitude &lt;dbl&gt;,
+## #   end_station_id &lt;dbl&gt;, end_station_name &lt;chr&gt;,
+## #   end_station_latitude &lt;dbl&gt;, end_station_longitude &lt;dbl&gt;, bikeid &lt;dbl&gt;,
+## #   usertype &lt;chr&gt;, birth_year &lt;dbl&gt;, gender &lt;dbl&gt;, bike_type &lt;chr&gt;</code></pre>
+<p>How can we modify this code to print the first <strong>10</strong> rows instead? (hint: <code>help(head)</code> to see the documentation)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nice_ride_<span class="dv">2018</span>, <span class="dt">__ =</span> ___)</code></pre></div>
 <p>We can also just get a summary of each variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(biopics)</code></pre></div>
-<pre><code>##     title               site             country           year_release 
-##  Length:761         Length:761         Length:761         Min.   :1915  
-##  Class :character   Class :character   Class :character   1st Qu.:1969  
-##  Mode  :character   Mode  :character   Mode  :character   Median :1995  
-##                                                           Mean   :1987  
-##                                                           3rd Qu.:2007  
-##                                                           Max.   :2014  
-##                                                                         
-##    box_office          director         number_of_subjects
-##  Min.   :     3150   Length:761         Min.   :1.000     
-##  1st Qu.:  1170000   Class :character   1st Qu.:1.000     
-##  Median :  6140000   Mode  :character   Median :1.000     
-##  Mean   : 22981174                      Mean   :1.268     
-##  3rd Qu.: 30500000                      3rd Qu.:1.000     
-##  Max.   :350000000                      Max.   :4.000     
-##  NA&#39;s   :324                                              
-##    subject          type_of_subject     race_known       
-##  Length:761         Length:761         Length:761        
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##                                                          
-##  subject_race       person_of_color subject_sex        lead_actor_actress
-##  Length:761         Mode :logical   Length:761         Length:761        
-##  Class :character   FALSE:661       Class :character   Class :character  
-##  Mode  :character   TRUE :100       Mode  :character   Mode  :character  
-##                                                                          
-##                                                                          
-##                                                                          
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
+<pre><code>##   tripduration        start_time                 
+##  Min.   :      61   Min.   :2018-04-12 08:49:49  
+##  1st Qu.:     434   1st Qu.:2018-06-08 15:49:25  
+##  Median :     808   Median :2018-07-18 10:10:37  
+##  Mean   :    3825   Mean   :2018-07-20 04:58:26  
+##  3rd Qu.:    1548   3rd Qu.:2018-08-27 22:36:27  
+##  Max.   :11136253   Max.   :2018-11-17 23:51:45  
+##                                                  
+##     end_time                   start_station_id start_station_name
+##  Min.   :2018-04-12 09:31:20   Min.   :  2.0    Length:412423     
+##  1st Qu.:2018-06-08 16:27:45   1st Qu.: 37.0    Class :character  
+##  Median :2018-07-18 10:56:49   Median : 94.0    Mode  :character  
+##  Mean   :2018-07-20 06:02:11   Mean   :103.5                      
+##  3rd Qu.:2018-08-28 06:23:01   3rd Qu.:171.0                      
+##  Max.   :2018-12-03 09:33:56   Max.   :226.0                      
+##                                NA&#39;s   :13443                      
+##  start_station_latitude start_station_longitude end_station_id 
+##  Min.   :44.89          Min.   :-93.33          Min.   :  2.0  
+##  1st Qu.:44.96          1st Qu.:-93.27          1st Qu.: 38.0  
+##  Median :44.97          Median :-93.26          Median : 95.0  
+##  Mean   :44.97          Mean   :-93.25          Mean   :103.7  
+##  3rd Qu.:44.98          3rd Qu.:-93.23          3rd Qu.:170.0  
+##  Max.   :45.04          Max.   :-93.08          Max.   :611.0  
+##                                                 NA&#39;s   :13443  
+##  end_station_name   end_station_latitude end_station_longitude
+##  Length:412423      Min.   :44.75        Min.   :-93.38       
+##  Class :character   1st Qu.:44.96        1st Qu.:-93.28       
+##  Mode  :character   Median :44.97        Median :-93.26       
+##                     Mean   :44.97        Mean   :-93.25       
+##                     3rd Qu.:44.98        3rd Qu.:-93.23       
+##                     Max.   :45.04        Max.   :-93.08       
+##                                                               
+##      bikeid       usertype           birth_year       gender      
+##  Min.   :   2   Length:412423      Min.   :1911   Min.   :0.0000  
+##  1st Qu.: 530   Class :character   1st Qu.:1969   1st Qu.:0.0000  
+##  Median :1056   Mode  :character   Median :1969   Median :1.0000  
+##  Mean   :1092                      Mean   :1976   Mean   :0.7054  
+##  3rd Qu.:1627                      3rd Qu.:1986   3rd Qu.:1.0000  
+##  Max.   :3341                      Max.   :2000   Max.   :2.0000  
+##                                                                   
+##   bike_type        
+##  Length:412423     
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+##                    
 ## </code></pre>
-<p>But you’ll notice these aren’t that meaningful for the character variables. Another way we can extract information about a variable is to use the <code>$</code> operator. To just pull out one variable from a dataset, you would write <code>data$variable</code>. We can use this syntax to make a table of the countries.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(biopics<span class="op">$</span>country)</code></pre></div>
+<p>But you’ll notice these aren’t that meaningful for the character variables. Another way we can extract information about a variable is to use the <code>$</code> operator. To just pull out one variable from a dataset, you would write <code>data$variable</code>. We can use this syntax to make a table of the user types.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>usertype)</code></pre></div>
 <pre><code>## 
-##       Canada    Canada/UK           UK           US    US/Canada 
-##           18           13          146          489           11 
-##        US/UK US/UK/Canada 
-##           82            2</code></pre>
+##   Customer Subscriber 
+##     290947     121476</code></pre>
 </div>
 <div id="practice" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Practice</h3>
 <ol style="list-style-type: decimal">
-<li><p>How many of the biopics were produced only in Canada?</p></li>
-<li><p>What is the mean number of subjects in the movies?</p></li>
-<li><p>How many subjects were female?</p></li>
+<li><p>How many of the users were female?</p></li>
+<li><p>What was the longest trip duration?</p></li>
+<li><p>Looking at the documentation, why might an end station name be empty?</p></li>
+<li><p>Looking at the documentation, what is the unit of the <code>tripduration</code> variable empty?</p></li>
+<li><p>What kinds of trips are excluded from this data?</p></li>
 </ol>
 
 </div>

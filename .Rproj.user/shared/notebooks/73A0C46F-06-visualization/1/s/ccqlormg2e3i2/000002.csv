@@ -1,0 +1,2 @@
+"0","ggplot(nice_ride_2018, aes(x = usertype)) + "
+"0","  geom_bar() # add the geoms"

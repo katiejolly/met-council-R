@@ -1,0 +1,26 @@
+# Packages
+
+R as a language on its own is useful, but the open-source nature of R means that packages can greatly extend its capabilities. Instead of writing a function for every process, there's a good chance someone else already has! There are packages for nearly every task you might want to do in R. If you're an ArcGIS user, one analogy for a package is that it is similar to extensions like Spatial Analyst. If you want to take a more literal approach each function of ArcGIS can be thought of like a package because someone has already taken the time to write that code and make it generally useful. 
+
+For this tutorial, you'll need a few main packages. Type (don't copy/paste) this code into your *console* (see image below). Click "OK" if it prompts you to restart R. This will only restart the underlying R engine, not your RStudio interface. 
+
+```{r eval=FALSE}
+install.packages(c("knitr", "tidyverse", "devtools", "rmarkdown"))
+```
+
+
+You can check that your packages installed correctly by loading the libraries into your R session.
+
+```{r message = FALSE, warning = FALSE}
+library(knitr)
+library(tidyverse)
+library(devtools)
+library(rmarkdown)
+```
+
+If you don't see an error, you're good-to-go. 
+
+```{r echo = FALSE, out.width="500px", fig.align="center"}
+knitr::include_graphics("http://gsp.humboldt.edu/OLM/R/Images/RStudio_1.png")
+```
+

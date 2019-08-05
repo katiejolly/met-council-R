@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565021295326.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1833969036",
+    "id" : "FE04F377",
+    "lastKnownWriteTime" : 1565043360,
+    "last_content_update" : 1565043360213,
+    "path" : "~/met-council-R/06-visualization.Rmd",
+    "project_path" : "06-visualization.Rmd",
+    "properties" : {
+        "cursorPosition" : "51,0",
+        "scrollLine" : "46"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

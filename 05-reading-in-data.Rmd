@@ -14,32 +14,35 @@ There are a number of packages in R specifically to make data sharing easier. A 
 
 * `ecoengine` to share data from the Berkley natural history museum
 
-We will use the data on diversity in [biopics from FiveThirtyEight](https://fivethirtyeight.com/features/straight-outta-compton-is-the-rare-biopic-not-about-white-dudes/). 
+We will use the data the MN niceride system. I put the data in a package so it's easy to use. You can install it by typing `install_github("katiejolly/metcouncilR")` in your console.
 
 ### Try it out
 
 In your R markdown, fill in the following code to load your library:
 
 ```{r include = FALSE}
-library(fivethirtyeight)
+library(metcouncilR)
 ```
 
 
 ```{r eval = FALSE}
-___(fivethirtyeight)
+___(metcouncilR)
 ```
 
 To pull a particular dataset from this package, we can use the `data()` function.
 
 ```{r}
-data("biopics") # biopics dataset
+data("nice_ride_2018") # niceride dataset
 ```
 
 You should now see it in your global working environment.
 
-```{r echo = FALSE}
-knitr::include_graphics("images/05-env.png")
+I've written documentation for this data that you can see in the help pane in RStudio.
+
+```{r eval = FALSE}
+help("nice_ride_2018")
 ```
+
 
 
 There are also a few different ways to get quick summaries of the data.
@@ -47,44 +50,48 @@ There are also a few different ways to get quick summaries of the data.
 First, you can check the dimensions to get the number of rows and columns.
 
 ```{r}
-dim(biopics)
+dim(nice_ride_2018)
 ```
 
-What function would you use to get just the number of columns?
+What function would you use to get just the number of columns? (Google it.)
 
 ```{r eval = FALSE}
-___(biopics)
+___(nice_ride_2018)
 ```
 
 We can also print the first 6 rows of the data with the `head()` function. 
 
 ```{r}
-head(biopics)
+head(nice_ride_2018)
 ```
 
-How can we modify this code to print the first **10** rows instead?
+How can we modify this code to print the first **10** rows instead? (hint: `help(head)` to see the documentation)
 
 ```{r eval = FALSE}
-head(biopics, __ = ___)
+head(nice_ride_2018, __ = ___)
 ```
 
 We can also just get a summary of each variable.
 
 ```{r}
-summary(biopics)
+summary(nice_ride_2018)
 ```
 
-But you'll notice these aren't that meaningful for the character variables. Another way we can extract information about a variable is to use the `$` operator. To just pull out one variable from a dataset, you would write `data$variable`. We can use this syntax to make a table of the countries.
+But you'll notice these aren't that meaningful for the character variables. Another way we can extract information about a variable is to use the `$` operator. To just pull out one variable from a dataset, you would write `data$variable`. We can use this syntax to make a table of the user types.
 
 ```{r}
-table(biopics$country)
+table(nice_ride_2018$usertype)
 ```
 
 
 ### Practice
 
-1. How many of the biopics were produced only in Canada? 
+1. How many of the users were female? 
 
-2. What is the mean number of subjects in the movies?
+2. What was the longest trip duration?
 
-3. How many subjects were female?
+3. Looking at the documentation, why might an end station name be empty?
+
+4. Looking at the documentation, what is the unit of the `tripduration` variable empty?
+
+5. What kinds of trips are excluded from this data?

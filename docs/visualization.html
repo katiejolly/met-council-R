@@ -125,7 +125,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="reading-in-data.html"><a href="reading-in-data.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a></li>
+<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="visualization.html"><a href="visualization.html#base-r-plotting"><i class="fa fa-check"></i><b>7.1</b> Base R plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization.html"><a href="visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
@@ -155,7 +158,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="visualization" class="section level1">
 <h1><span class="header-section-number">Section 7</span> Visualization</h1>
 <p>We will start with univariate visualization to learn the syntax, and then later move into more complex multivariate visualizations.</p>
+<p>R has some built-in plotting ability. It’s good to recognize the syntax, but it’s not super common to see “in-the-wild” these days.</p>
+<div id="base-r-plotting" class="section level2">
+<h2><span class="header-section-number">7.1</span> Base R plotting</h2>
+<p>R can make histograms:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>tripduration) <span class="co"># this one isn&#39;t great because the distribution is so skewed</span></code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>And bar plots:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>usertype), <span class="dt">main =</span> <span class="st">&quot;User Type&quot;</span>) </code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>bike_type), <span class="dt">main =</span> <span class="st">&quot;Bike Type&quot;</span>)</code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<p>But base R plots are hard to customize and an inconsistent syntax. There’s general agreement that they’re not the best way to plot data in R so we aren’t going to talk much about it.</p>
+</div>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">7.2</span> ggplot2</h2>
+<p><code>ggplot2</code> is without competiton in the graphics in R world. Not only is it the most popular plotting package, it’s one of the most popular packages, period. It is included in the tidyverse, which we already loaded.</p>
+<p>ggplot uses the “grammar of graphics” to layer information onto plots. Each plot has the same general structure which makes it easy once you learn the structure.</p>
+<p>For example, let’s recreate the bar plot of user types from above.</p>
+<p>We will layer on the information in stages.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>) <span class="co"># set up our plotting area </span></code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="co"># set up our axes</span></code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>() <span class="co"># add the geoms</span></code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;User Types&quot;</span>) <span class="co"># add a title</span></code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
