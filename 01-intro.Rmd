@@ -1,0 +1,18 @@
+# Installing R and RStudio {#setup}
+
+In order to save time, you should have [R](https://cran.r-project.org/mirrors.html) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) downloaded, *in that order*. 
+
+Here is one guide to walk you through the process: https://www.ics.uci.edu/~sternh/courses/210/InstallingRandRStudio.pdf
+
+Note that you should just download the most recent version, the version numbers in that document are likely out of date. 
+
+Once you have both installed, open RStudio and see if it looks like this (minor deviations are totally fine):
+
+```{r echo=FALSE, out.width="600px"}
+knitr::include_graphics("https://i1.wp.com/www.bytemining.com/wp-content/uploads/2011/03/rstudio.png")
+```
+
+
+R is the underlying language while RStudio is typically how you will interact with it. RStudio is an integrated development environment (IDE) that is generally considered to be one of the best available. It's also entirely open source and free (unless you want special features) which is unique among IDEs of its quality. The IDE means that rather than just being a place for you to write code, "it includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management" (RStudio). In short, this means it makes your code-writing so much smoother.  
+
+If you have any questions or run into issues, feel free to stop by my cube or email me! 

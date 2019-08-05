@@ -1,0 +1,36 @@
+--- 
+title: "An Introduction to R at Met Council"
+author: "Katie Jolly"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "These are materials intended for a four hour introduction to reproducible data analysis in R."
+---
+
+# Welcome!
+
+This book is meant to be a reference for before, during, and after the in-person session on August 14. It is not comprehensive, but should serve as a way to help illustrate the different concepts. My hope is that at the end of it, everyone will be able to read in data, clean and wrangle it, plot it, and do some simple analysis. 
+
+R is a powerful language for statistical analysis and data communication and we will only get to the surface of everything today. For example, this map was map entirely with R (as was this book)!
+
+```{r out.width="700px", echo=FALSE}
+knitr::include_graphics("https://timogrossenbacher.ch/wp-content/uploads/2016/12/tm-final-map-1.png")
+
+```
+
+**Notes:**
+
+1. If you find typos, errors, or clarity issues, please let me know!
+
+2. If you want to share this resource (or happen upon it on the internet) feel free to share it, I just ask that you credit properly (whether that is me or someone I've credited). 
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

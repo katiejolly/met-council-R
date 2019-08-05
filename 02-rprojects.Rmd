@@ -1,0 +1,29 @@
+# R Projects
+
+When working on an analysis with R, the recommended workflow is to use [R Projects](https://r4ds.had.co.nz/workflow-projects.html). This is also called ["project-oriented workflow"](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) in some other tutorials. 
+
+Projects are nice because they keep all of the data, code, writing, etc. for a particular task in one place. You don't have to worry about working directories and reproducibility is more straightforward. It allows you to use relative versus absolute pathnames, this is awesome when working with collaborators. 
+
+Let's make a project for this workshop! 
+
+## Set up your project
+
+In the upper right corner of your RStudio window, you'll see `Project: (None)`. Click on that, then select `New Project...`. Next select `New Directory`.
+
+```{r echo = FALSE}
+knitr::include_graphics("images/03-03-newproject.png")
+```
+
+Then select `New Project` from the list of options.
+
+```{r echo = FALSE}
+knitr::include_graphics("images/03-01-newproject.png")
+```
+
+Then you can name your project (think of it as naming the folder where you'll keep all of your work). I like to include the date in my file names as well. The second part (`Create project as a subdirectory of:`) is where you want this folder to live on your computer. The default for Windows is your Documents/ folder. 
+
+```{r echo = FALSE}
+knitr::include_graphics("images/03-02-newproject.png")
+```
+
+Once you've done that, click `Create Project`. You should now see your current project name in the corner where before you saw `Project: (None)`. 

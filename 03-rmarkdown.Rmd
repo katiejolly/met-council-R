@@ -1,0 +1,116 @@
+# Writing R code 
+
+There are three main places to write R code while using RStudio. In order of complexity, they are: the console, R scripts, and R markdown. 
+
+## The console
+
+The console should be thought of as scratch paper. It's a way to test code before writing it in a document. It's also nice for code that you only need to run once, like installing a package. 
+
+### Try it out
+
+* Type `3+2` and hit enter
+
+* Type `x <- 3+2` and hit enter
+
+* Then, type `x` and hit enter
+
+What did you get back when you typed `x` into the console?
+
+* Type `x * 4` and hit enter
+
+What happened now?
+
+### R objects
+
+R stores information in **objects**, or variables. 
+
+We created an object called `x` by naming it and assigning it with the `<-` function to the value `3+2`. You may also see people write `x = 3+2` but that is less common. 
+
+Object names should be short and meaningful. They cannot start with a number and the only special characters allowed are `.` and `_`. Names are also **case sensitive**, as is all R code. Certain words have special meanings and cannot be used as object names. These include words like `if` and `else` because they have other meanings in R. 
+
+```{r error=TRUE}
+if <- 3+2
+```
+
+It won't let us create the variable because it's an off-limits name. 
+
+As a matter of style, it is recommended to:
+
+* Use nouns
+
+* Avoid using `.` in names
+
+* Avoid using function names, even when technically allowed (this will become easier with time as you learn more function names)
+
+* Pick a style and go with it
+
+For example, I prefer using `_` in my object names instead of `camelCase`. If you want to learn more about style, consider reading the guides written by [Google](https://google.github.io/styleguide/Rguide.xml) or the [Tidyverse packages](https://style.tidyverse.org/) later. 
+
+## R scripts
+
+R scripts allow you to save the code that you write to run again later. They are essentially a document meant to read code. Let's make one. 
+
+Go to **File > New File > R Script** or **ctrl + shift + N**. 
+
+Save your new R script in a new folder called `R` within your project folder.
+
+
+On the first line, create an object that is assigned to your name. In R, characters (words) need to be surrounded by quotes. Numbers do not. 
+
+First, try without quotes. To run this either press the run button at the top of the script or press **ctrl + enter** when your cursor is on the line you want to run. 
+
+```{r error = TRUE}
+name <- Katie
+```
+
+It's looking for an object called Katie. Why?
+
+In R, variable names do not need quotes. This is how they are distinguised visually from character data. 
+
+Let's try again.
+
+
+```{r}
+name <- "Katie"
+```
+
+### Comments
+
+Whenever you're writing code, think of it as writing for someone who isn't you. What this means is that you should leave comments that explain your thought process. People have differing opinions on what a good comment is, but it generally shouldn't be something that just repeats the code. It should be something about why you chose that function, what you expect to get in your output, issues you had, etc etc. 
+
+In R you can write a comment by having a `#` at the beginning of the line. 
+
+In your script, write a comment to yourself about one thing you hope to be able to do in R after the workshop today.
+
+## R markdown
+
+The third, and most universally useful in my opinion, way to write code is in an R markdown document. If you've used Jupyter notebooks in Python, it's a similar idea. R markdown is a way to interweave code, analysis, output, and prose. The pandoc engine "knits" your document into a Word doc, PDF, or HTML. This book is an HTML file knitted from a bunch of R markdowns! 
+
+
+Today we will be working in R markdown to save our work and be able to reference it later. 
+
+To create an R markdown, go to **File > New File > R Markdown...**
+
+Write a title for your document (this is **not** the same thing as naming the file), add your name, and select HTML as the output format. 
+
+```{r echo = FALSE}
+knitr::include_graphics("images/03-04-newmarkdown.png")
+```
+
+
+Erase everything in your document **except** the header. This is the part enclosed by `---`. But let me know if you accidentally delete that too! It's not hard to fix. Anything typed just directly onto the document is plain text. We will write code in "chunks" later. There are also nice ways to include HTML elements like headers and bold text. 
+
+* At the top of your document, write a short paragraph about the best thing that happened to you last week. Start it with the header `# Best part of last week`. The `#` in plain text indicates a header.
+
+* In your paragraph, use bold text at least once and bullet points at least twice. Use the R markdown [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) to figure out how to do that. 
+
+* Next, add this photo to your R markdown: https://www.metrotransit.org/Data/Sites/1/media/metro/greenline/metro_greenline_map_031716_web.png
+
+
+```{r echo = FALSE}
+knitr::include_graphics("https://www.metrotransit.org/Data/Sites/1/media/metro/greenline/metro_greenline_map_031716_web.png")
+```
+
+* Finally, insert an R chunk from the top of the document by clicking **Insert > R** or **ctrl + alt + i**. Type `3 + 4` and then run the code with the green arrow. 
+
+* Now, knit your HTML (*Knit*) to see what it looks like!

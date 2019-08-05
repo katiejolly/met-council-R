@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>An Introduction to R at Met Council</title>
+  <meta name="description" content="These are materials intended for a four hour introduction to reproducible data analysis in R.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="An Introduction to R at Met Council" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are materials intended for a four hour introduction to reproducible data analysis in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="An Introduction to R at Met Council" />
+  
+  <meta name="twitter:description" content="These are materials intended for a four hour introduction to reproducible data analysis in R." />
+  
+
+<meta name="author" content="Katie Jolly">
+
+
+<meta name="date" content="2019-08-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="packages.html">
+<link rel="next" href="visualization.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to R at Met Council</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
+<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3" data-path="r-projects.html"><a href="r-projects.html"><i class="fa fa-check"></i><b>3</b> R Projects</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project"><i class="fa fa-check"></i><b>3.1</b> Set up your project</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="writing-r-code.html"><a href="writing-r-code.html"><i class="fa fa-check"></i><b>4</b> Writing R code</a><ul>
+<li class="chapter" data-level="4.1" data-path="writing-r-code.html"><a href="writing-r-code.html#the-console"><i class="fa fa-check"></i><b>4.1</b> The console</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="writing-r-code.html"><a href="writing-r-code.html#try-it-out"><i class="fa fa-check"></i><b>4.1.1</b> Try it out</a></li>
+<li class="chapter" data-level="4.1.2" data-path="writing-r-code.html"><a href="writing-r-code.html#r-objects"><i class="fa fa-check"></i><b>4.1.2</b> R objects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="writing-r-code.html"><a href="writing-r-code.html#r-scripts"><i class="fa fa-check"></i><b>4.2</b> R scripts</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="writing-r-code.html"><a href="writing-r-code.html#comments"><i class="fa fa-check"></i><b>4.2.1</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="writing-r-code.html"><a href="writing-r-code.html#r-markdown"><i class="fa fa-check"></i><b>4.3</b> R markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5</b> Packages</a></li>
+<li class="chapter" data-level="6" data-path="reading-in-data.html"><a href="reading-in-data.html"><i class="fa fa-check"></i><b>6</b> Reading in Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="reading-in-data.html"><a href="reading-in-data.html#data-packages"><i class="fa fa-check"></i><b>6.1</b> Data packages</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="reading-in-data.html"><a href="reading-in-data.html#try-it-out-1"><i class="fa fa-check"></i><b>6.1.1</b> Try it out</a></li>
+<li class="chapter" data-level="6.1.2" data-path="reading-in-data.html"><a href="reading-in-data.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a></li>
+<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
+<li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
+<li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
+<li class="chapter" data-level="11" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>11</b> Reading in data, revisited</a></li>
+<li class="chapter" data-level="12" data-path="more-resources.html"><a href="more-resources.html"><i class="fa fa-check"></i><b>12</b> More resources</a></li>
+<li class="chapter" data-level="13" data-path="miscellaneous-notes.html"><a href="miscellaneous-notes.html"><i class="fa fa-check"></i><b>13</b> Miscellaneous notes</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to R at Met Council</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reading-in-data" class="section level1">
+<h1><span class="header-section-number">Section 6</span> Reading in Data</h1>
+<p>I am a strong believer in the <a href="https://twitter.com/minebocek/status/1072222447473168389">cake-first</a> approach to teaching/learning R. It emphasizes real-world examples, interesting data, and visual feedback. Because of that, I like to use ready-made data packages like <code>fivethirtyeight</code> and talk about visualization <em>before</em> data cleaning.</p>
+<p>But I also think reading in data is an important skill so we will talk about that briefly at the end of today, but not spend too much time on it. For now, let’s eat the cake instead of going out to get the ingredients. That’s more fun anyway.</p>
+<div id="data-packages" class="section level2">
+<h2><span class="header-section-number">6.1</span> Data packages</h2>
+<p>There are a number of packages in R specifically to make data sharing easier. A few examples are:</p>
+<ul>
+<li><p><code>fivethirtyeight</code> to share to data used in their articles</p></li>
+<li><p><code>bikedata</code> to share data about certain bikeshare systems</p></li>
+<li><p><code>ecoengine</code> to share data from the Berkley natural history museum</p></li>
+</ul>
+<p>We will use the data on diversity in <a href="https://fivethirtyeight.com/features/straight-outta-compton-is-the-rare-biopic-not-about-white-dudes/">biopics from FiveThirtyEight</a>.</p>
+<div id="try-it-out-1" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Try it out</h3>
+<p>In your R markdown, fill in the following code to load your library:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">___</span>(fivethirtyeight)</a></code></pre></div>
+<p>To pull a particular dataset from this package, we can use the <code>data()</code> function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">data</span>(<span class="st">&quot;biopics&quot;</span>) <span class="co"># biopics dataset</span></a></code></pre></div>
+<p>You should now see it in your global working environment.</p>
+<p><img src="images/05-env.PNG" width="362" /></p>
+<p>There are also a few different ways to get quick summaries of the data.</p>
+<p>First, you can check the dimensions to get the number of rows and columns.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">dim</span>(biopics)</a></code></pre></div>
+<pre><code>## [1] 761  14</code></pre>
+<p>What function would you use to get just the number of columns?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">___</span>(biopics)</a></code></pre></div>
+<p>We can also print the first 6 rows of the data with the <code>head()</code> function.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">head</span>(biopics)</a></code></pre></div>
+<pre><code>## # A tibble: 6 x 14
+##   title site  country year_release box_office director number_of_subje~
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;          &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt;
+## 1 10 R~ tt00~ UK              1971         NA Richard~                1
+## 2 12 Y~ tt20~ US/UK           2013   56700000 Steve M~                1
+## 3 127 ~ tt15~ US/UK           2010   18300000 Danny B~                1
+## 4 1987  tt28~ Canada          2014         NA Ricardo~                1
+## 5 20 D~ tt01~ US              1998     537000 Myles B~                1
+## 6 21    tt04~ US              2008   81200000 Robert ~                1
+## # ... with 7 more variables: subject &lt;chr&gt;, type_of_subject &lt;chr&gt;,
+## #   race_known &lt;chr&gt;, subject_race &lt;chr&gt;, person_of_color &lt;lgl&gt;,
+## #   subject_sex &lt;chr&gt;, lead_actor_actress &lt;chr&gt;</code></pre>
+<p>How can we modify this code to print the first <strong>10</strong> rows instead?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">head</span>(biopics, <span class="dt">__ =</span> ___)</a></code></pre></div>
+<p>We can also just get a summary of each variable.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">summary</span>(biopics)</a></code></pre></div>
+<pre><code>##     title               site             country           year_release 
+##  Length:761         Length:761         Length:761         Min.   :1915  
+##  Class :character   Class :character   Class :character   1st Qu.:1969  
+##  Mode  :character   Mode  :character   Mode  :character   Median :1995  
+##                                                           Mean   :1987  
+##                                                           3rd Qu.:2007  
+##                                                           Max.   :2014  
+##                                                                         
+##    box_office          director         number_of_subjects
+##  Min.   :     3150   Length:761         Min.   :1.000     
+##  1st Qu.:  1170000   Class :character   1st Qu.:1.000     
+##  Median :  6140000   Mode  :character   Median :1.000     
+##  Mean   : 22981174                      Mean   :1.268     
+##  3rd Qu.: 30500000                      3rd Qu.:1.000     
+##  Max.   :350000000                      Max.   :4.000     
+##  NA&#39;s   :324                                              
+##    subject          type_of_subject     race_known       
+##  Length:761         Length:761         Length:761        
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+##                                                          
+##                                                          
+##  subject_race       person_of_color subject_sex        lead_actor_actress
+##  Length:761         Mode :logical   Length:761         Length:761        
+##  Class :character   FALSE:661       Class :character   Class :character  
+##  Mode  :character   TRUE :100       Mode  :character   Mode  :character  
+##                                                                          
+##                                                                          
+##                                                                          
+## </code></pre>
+<p>But you’ll notice these aren’t that meaningful for the character variables. Another way we can extract information about a variable is to use the <code>$</code> operator. To just pull out one variable from a dataset, you would write <code>data$variable</code>. We can use this syntax to make a table of the countries.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">table</span>(biopics<span class="op">$</span>country)</a></code></pre></div>
+<pre><code>## 
+##       Canada    Canada/UK           UK           US    US/Canada 
+##           18           13          146          489           11 
+##        US/UK US/UK/Canada 
+##           82            2</code></pre>
+</div>
+<div id="practice" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Practice</h3>
+<ol style="list-style-type: decimal">
+<li><p>How many of the biopics were produced only in Canada?</p></li>
+<li><p>What is the mean number of subjects in the movies?</p></li>
+<li><p>How many subjects were female?</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["met-council-introR.pdf", "met-council-introR.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
