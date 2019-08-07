@@ -74,6 +74,26 @@ Let's try again.
 name <- "Katie"
 ```
 
+One common data structure in R is a [vector](https://www.datamentor.io/r-programming/vector/). It is a list of numbers, characters, or nearly any other data type. It can also be thought of a similar to a list (although its structure is slightly different). Vectors are created with the `c()` function. 
+
+```{r}
+vec <- c(1, 4, 9, 16) # a vector of squares
+```
+
+Vectors in R are great for a number of reasons. They're useful ways to store data and perform a function on each element. For example I can have R add a constant to each element of my vector.
+
+```{r}
+vec + 1
+```
+
+I can also have it take the square root.
+
+```{r}
+sqrt(vec)
+```
+
+We will see more vectors when we get to wrangling.
+
 ### Comments
 
 Whenever you're writing code, think of it as writing for someone who isn't you. What this means is that you should leave comments that explain your thought process. People have differing opinions on what a good comment is, but it generally shouldn't be something that just repeats the code. It should be something about why you chose that function, what you expect to get in your output, issues you had, etc etc. 

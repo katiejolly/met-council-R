@@ -155,7 +155,7 @@ ggplot(nice_ride_2018, aes(x = tripduration)) +
 
 In the end, your plot should look something like this:
 
-```{r}
+```{r echo = FALSE}
 ggplot(nice_ride_2018, aes(x = start_day)) +
   geom_bar(fill = "cyan4") +
   theme_minimal() +

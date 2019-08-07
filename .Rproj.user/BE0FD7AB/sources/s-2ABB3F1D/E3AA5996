@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3951590844",
+    "hash" : "830014983",
     "id" : "E3AA5996",
-    "lastKnownWriteTime" : 1565207804,
-    "last_content_update" : 1565207804287,
+    "lastKnownWriteTime" : 1565214360,
+    "last_content_update" : 1565214360302,
     "path" : "~/met-council-R/03-rmarkdown.Rmd",
     "project_path" : "03-rmarkdown.Rmd",
     "properties" : {
-        "cursorPosition" : "106,106",
-        "scrollLine" : "94"
+        "cursorPosition" : "94,50",
+        "scrollLine" : "62"
     },
     "relative_order" : 8,
     "source_on_save" : false,

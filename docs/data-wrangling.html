@@ -138,7 +138,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="visualization.html"><a href="visualization.html#practice-1"><i class="fa fa-check"></i><b>7.3</b> Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
+<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#row-verbs"><i class="fa fa-check"></i><b>8.1</b> Row verbs</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> Filter</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
 <li class="chapter" data-level="11" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>11</b> Reading in data, revisited</a></li>
@@ -175,7 +179,51 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-wrangling" class="section level1">
 <h1><span class="header-section-number">Section 8</span> Data Wrangling</h1>
+<p>We will mostly be using the <code>tidyr</code> and <code>dplyr</code> packages for wrangling. With those packages, most wrangling is done with 6 “data verbs.” These are <code>select()</code>, <code>mutate()</code>, <code>filter()</code>, <code>arrange()</code>, <code>group_by()</code>, and <code>summarise()</code>. One quick note: summarise can be spelled the British or American way (as can any word with dual spellings). Much of the software was developed by people in New Zealand, hence the British spellings. I learned with British spellings so that’s what I use, but it works either way.</p>
+<p>We can divide our verbs into 3 categories: row verbs, column verbs, and aggregate verbs.</p>
+<p>All of the verbs work in a similar way. The general structure is <code>verb(data, action)</code>.</p>
+<div id="row-verbs" class="section level2">
+<h2><span class="header-section-number">8.1</span> Row verbs</h2>
+<p>The two row verbs are <code>filter()</code> and <code>arrange()</code>. Filter works by taking out rows that we don’t want in our data. Arrange works by ordering the rows in some way. We will talk about filter first.</p>
+<div id="filter" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Filter</h3>
+<p>Filter takes in boolean statements and returns only the <code>TRUE</code> ones. For example, <code>&gt;</code>, <code>&lt;</code>, and <code>==</code> are boolean statements. The double equal is R’s way of saying something “is equivalent to.”</p>
+<p>Let’s start by creating a dataframe of only Saturday trips.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a new dataframe called weekend_trips</span>
 
+saturday_trips &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, start_day <span class="op">==</span><span class="st"> &quot;Sat&quot;</span>) 
+
+<span class="kw">dim</span>(saturday_trips) <span class="co"># check that you have these dimensions</span></code></pre></div>
+<pre><code>## [1] 66778    22</code></pre>
+<p>We can also make a dataframe of trips that ended after 12 noon.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">after_<span class="dv">12</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, end_hour <span class="op">&gt;</span><span class="st"> </span><span class="dv">12</span>) 
+
+<span class="kw">dim</span>(after_<span class="dv">12</span>)</code></pre></div>
+<pre><code>## [1] 277163     22</code></pre>
+<p>Let’s say we want some combination of filters. Maybe we want only the Saturday trips that ended after noon? We will use the <code>&amp;</code> operator in between filter actions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">saturday_after_<span class="dv">12</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, end_hour <span class="op">&gt;</span><span class="st"> </span><span class="dv">12</span> <span class="op">&amp;</span><span class="st"> </span>start_day <span class="op">==</span><span class="st"> &quot;Sat&quot;</span>)
+
+<span class="kw">dim</span>(saturday_after_<span class="dv">12</span>)</code></pre></div>
+<pre><code>## [1] 47806    22</code></pre>
+<p>Now let’s make a dataframe of all the trips on a weekend day. We will use the <code>|</code> (or) operator in between filter actions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weekend_trips &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, start_day <span class="op">==</span><span class="st"> &quot;Sat&quot;</span> <span class="op">|</span><span class="st"> </span>start_day <span class="op">==</span><span class="st"> &quot;Sun&quot;</span>)
+
+<span class="kw">dim</span>(weekend_trips)</code></pre></div>
+<pre><code>## [1] 129776     22</code></pre>
+<p>Let’s add Friday to that list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weekendFri_trips &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, start_day <span class="op">==</span><span class="st"> &quot;Sat&quot;</span> <span class="op">|</span><span class="st"> </span>start_day <span class="op">==</span><span class="st"> &quot;Sun&quot;</span> <span class="op">|</span><span class="st"> </span>start_day <span class="op">==</span><span class="st"> &quot;Fri&quot;</span>)
+
+<span class="kw">dim</span>(weekendFri_trips)</code></pre></div>
+<pre><code>## [1] 190271     22</code></pre>
+<p>It gets a little long to write that all out, and this is a pretty simply query. Luckily, R has an <code>%in%</code> operator to filter “in bulk.”</p>
+<p>We would get the same results as above by writing:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">weekendFri_trips &lt;-<span class="st"> </span><span class="kw">filter</span>(nice_ride_<span class="dv">2018</span>, start_day <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>, <span class="st">&quot;Fri&quot;</span>))
+
+<span class="kw">dim</span>(weekendFri_trips)</code></pre></div>
+<pre><code>## [1] 190271     22</code></pre>
+
+</div>
+</div>
 </div>
             </section>
 

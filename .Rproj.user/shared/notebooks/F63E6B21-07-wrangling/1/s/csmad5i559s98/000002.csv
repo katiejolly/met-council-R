@@ -1,0 +1,7 @@
+"0","weekendFri_trips <- filter(nice_ride_2018, start_day == ""Sat"" | start_day == ""Sun"" | start_day == ""Fri"")"
+"0","dim(weekendFri_trips)"
+"1","[1]"
+"1"," 190271"
+"1","     22"
+"1","
+"
