@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-05" />
+<meta name="date" content="2019-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -104,9 +104,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
-<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="setup.html"><a href="setup.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="2.2" data-path="setup.html"><a href="setup.html#rstudio-desktop"><i class="fa fa-check"></i><b>2.2</b> RStudio Desktop</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="r-projects.html"><a href="r-projects.html"><i class="fa fa-check"></i><b>3</b> R Projects</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project"><i class="fa fa-check"></i><b>3.1</b> Set up your project</a></li>
+<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-cloud"><i class="fa fa-check"></i><b>3.1</b> Set up your project: Cloud</a></li>
+<li class="chapter" data-level="3.2" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-desktop"><i class="fa fa-check"></i><b>3.2</b> Set up your project: Desktop</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="writing-r-code.html"><a href="writing-r-code.html"><i class="fa fa-check"></i><b>4</b> Writing R code</a><ul>
 <li class="chapter" data-level="4.1" data-path="writing-r-code.html"><a href="writing-r-code.html#the-console"><i class="fa fa-check"></i><b>4.1</b> The console</a><ul>
@@ -125,7 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="reading-in-data.html"><a href="reading-in-data.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a></li>
+<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="visualization.html"><a href="visualization.html#base-r-plotting"><i class="fa fa-check"></i><b>7.1</b> Base R plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization.html"><a href="visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="visualization.html"><a href="visualization.html#categorical-data"><i class="fa fa-check"></i><b>7.2.1</b> Categorical data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="visualization.html"><a href="visualization.html#try-it-out-2"><i class="fa fa-check"></i><b>7.2.2</b> Try it out</a></li>
+<li class="chapter" data-level="7.2.3" data-path="visualization.html"><a href="visualization.html#quantitative-data"><i class="fa fa-check"></i><b>7.2.3</b> Quantitative data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
@@ -154,14 +165,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="setup" class="section level1">
 <h1><span class="header-section-number">Section 2</span> Installing R and RStudio</h1>
-<p>In order to save time, you should have <a href="https://cran.r-project.org/mirrors.html">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a> downloaded, <em>in that order</em>.</p>
+<p>R is the underlying language while RStudio is typically how you will interact with it. RStudio is an integrated development environment (IDE) that is generally considered to be one of the best available. It’s also entirely open source and free (unless you want special features) which is unique among IDEs of its quality. The IDE means that rather than just being a place for you to write code, “it includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management” (RStudio). In short, this means it makes your code-writing so much smoother.</p>
+<div id="rstudio-cloud" class="section level2">
+<h2><span class="header-section-number">2.1</span> RStudio Cloud</h2>
+<p>In this workshop, we will be using the <a href="https://rstudio.cloud/">RStudio cloud</a> option. I don’t recommend this for long-term use, but it’s an awesome resource that makes learning R <a href="https://rstudio.cloud/learn/guide">easier</a> and <a href="https://www.causeweb.org/cause/sites/default/files/eCOTS%202018%20-%20Frictionless%20onboarding%20to%20data%20science%20with%20RStudio%20Cloud.pdf">less dependent</a> on software installation. Each project is allocated 1GB of RAM which is fine for this workshop, but is not enough for joining large datasets or fitting complicated models.</p>
+<p>To create your cloud account, go to the <a href="https://rstudio.cloud/">sign-up page</a>. Click “Get Started” and enter credentials for yourself.</p>
+<p>Once you’re logged in, your workspace should look something like this:</p>
+<p><img src="images/rstudiocloud.png" width="960" /></p>
+</div>
+<div id="rstudio-desktop" class="section level2">
+<h2><span class="header-section-number">2.2</span> RStudio Desktop</h2>
+<p>In order to run RStudio on your desktop, you should have <a href="https://cran.r-project.org/mirrors.html">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a> downloaded, <em>in that order</em>.</p>
 <p>Here is one guide to walk you through the process: <a href="https://www.ics.uci.edu/~sternh/courses/210/InstallingRandRStudio.pdf" class="uri">https://www.ics.uci.edu/~sternh/courses/210/InstallingRandRStudio.pdf</a></p>
 <p>Note that you should just download the most recent version, the version numbers in that document are likely out of date.</p>
 <p>Once you have both installed, open RStudio and see if it looks like this (minor deviations are totally fine):</p>
 <p><img src="https://i1.wp.com/www.bytemining.com/wp-content/uploads/2011/03/rstudio.png" width="600px" /></p>
-<p>R is the underlying language while RStudio is typically how you will interact with it. RStudio is an integrated development environment (IDE) that is generally considered to be one of the best available. It’s also entirely open source and free (unless you want special features) which is unique among IDEs of its quality. The IDE means that rather than just being a place for you to write code, “it includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging and workspace management” (RStudio). In short, this means it makes your code-writing so much smoother.</p>
 <p>If you have any questions or run into issues, feel free to stop by my cube or email me!</p>
 
+</div>
 </div>
             </section>
 
@@ -206,7 +227,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["met-council-introR.pdf", "met-council-introR.epub"],
+"download": ["met-council-introR.epub"],
 "toc": {
 "collapse": "subsection"
 }

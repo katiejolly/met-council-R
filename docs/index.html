@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-05" />
+<meta name="date" content="2019-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -104,9 +104,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
-<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="setup.html"><a href="setup.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="2.2" data-path="setup.html"><a href="setup.html#rstudio-desktop"><i class="fa fa-check"></i><b>2.2</b> RStudio Desktop</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="r-projects.html"><a href="r-projects.html"><i class="fa fa-check"></i><b>3</b> R Projects</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project"><i class="fa fa-check"></i><b>3.1</b> Set up your project</a></li>
+<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-cloud"><i class="fa fa-check"></i><b>3.1</b> Set up your project: Cloud</a></li>
+<li class="chapter" data-level="3.2" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-desktop"><i class="fa fa-check"></i><b>3.2</b> Set up your project: Desktop</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="writing-r-code.html"><a href="writing-r-code.html"><i class="fa fa-check"></i><b>4</b> Writing R code</a><ul>
 <li class="chapter" data-level="4.1" data-path="writing-r-code.html"><a href="writing-r-code.html#the-console"><i class="fa fa-check"></i><b>4.1</b> The console</a><ul>
@@ -125,7 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="reading-in-data.html"><a href="reading-in-data.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a></li>
+<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="visualization.html"><a href="visualization.html#base-r-plotting"><i class="fa fa-check"></i><b>7.1</b> Base R plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization.html"><a href="visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="visualization.html"><a href="visualization.html#categorical-data"><i class="fa fa-check"></i><b>7.2.1</b> Categorical data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="visualization.html"><a href="visualization.html#try-it-out-2"><i class="fa fa-check"></i><b>7.2.2</b> Try it out</a></li>
+<li class="chapter" data-level="7.2.3" data-path="visualization.html"><a href="visualization.html#quantitative-data"><i class="fa fa-check"></i><b>7.2.3</b> Quantitative data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
@@ -155,14 +166,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">An Introduction to R at Met Council</h1>
 <p class="author"><em>Katie Jolly</em></p>
-<p class="date"><em>2019-08-05</em></p>
+<p class="date"><em>2019-08-07</em></p>
 </div>
 <div id="welcome" class="section level1">
 <h1><span class="header-section-number">Section 1</span> Welcome!</h1>
 <p>This book is meant to be a reference for before, during, and after the in-person session on August 14. It is not comprehensive, but should serve as a way to help illustrate the different concepts. My hope is that at the end of it, everyone will be able to read in data, clean and wrangle it, plot it, and do some simple analysis.</p>
 <p>R is a powerful language for statistical analysis and data communication and we will only get to the surface of everything today. For example, this map was map entirely with R (as was this book)!</p>
 <p><img src="https://timogrossenbacher.ch/wp-content/uploads/2016/12/tm-final-map-1.png" width="700px" /></p>
-<p>**<a href="Notes:**" class="uri">Notes:**</a></p>
+<p>Notes:</p>
 <ol style="list-style-type: decimal">
 <li><p>If you find typos, errors, or clarity issues, please let me know!</p></li>
 <li><p>If you want to share this resource (or happen upon it on the internet) feel free to share it, I just ask that you credit properly (whether that is me or someone I’ve credited).</p></li>
@@ -212,7 +223,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["met-council-introR.pdf", "met-council-introR.epub"],
+"download": ["met-council-introR.epub"],
 "toc": {
 "collapse": "subsection"
 }

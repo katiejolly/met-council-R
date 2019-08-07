@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565041141996.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2310732922",
+    "id" : "CEE2CBAE",
+    "lastKnownWriteTime" : 1565195982,
+    "last_content_update" : 1565195982515,
+    "path" : "~/met-council-R/04-packages.Rmd",
+    "project_path" : "04-packages.Rmd",
+    "properties" : {
+        "cursorPosition" : "11,143",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

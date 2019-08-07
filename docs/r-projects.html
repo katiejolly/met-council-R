@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-05" />
+<meta name="date" content="2019-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -104,9 +104,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a></li>
-<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="setup.html"><a href="setup.html#rstudio-cloud"><i class="fa fa-check"></i><b>2.1</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="2.2" data-path="setup.html"><a href="setup.html#rstudio-desktop"><i class="fa fa-check"></i><b>2.2</b> RStudio Desktop</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="r-projects.html"><a href="r-projects.html"><i class="fa fa-check"></i><b>3</b> R Projects</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project"><i class="fa fa-check"></i><b>3.1</b> Set up your project</a></li>
+<li class="chapter" data-level="3.1" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-cloud"><i class="fa fa-check"></i><b>3.1</b> Set up your project: Cloud</a></li>
+<li class="chapter" data-level="3.2" data-path="r-projects.html"><a href="r-projects.html#set-up-your-project-desktop"><i class="fa fa-check"></i><b>3.2</b> Set up your project: Desktop</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="writing-r-code.html"><a href="writing-r-code.html"><i class="fa fa-check"></i><b>4</b> Writing R code</a><ul>
 <li class="chapter" data-level="4.1" data-path="writing-r-code.html"><a href="writing-r-code.html#the-console"><i class="fa fa-check"></i><b>4.1</b> The console</a><ul>
@@ -125,7 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="reading-in-data.html"><a href="reading-in-data.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a></li>
+<li class="chapter" data-level="7" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>7</b> Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="visualization.html"><a href="visualization.html#base-r-plotting"><i class="fa fa-check"></i><b>7.1</b> Base R plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization.html"><a href="visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="visualization.html"><a href="visualization.html#categorical-data"><i class="fa fa-check"></i><b>7.2.1</b> Categorical data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="visualization.html"><a href="visualization.html#try-it-out-2"><i class="fa fa-check"></i><b>7.2.2</b> Try it out</a></li>
+<li class="chapter" data-level="7.2.3" data-path="visualization.html"><a href="visualization.html#quantitative-data"><i class="fa fa-check"></i><b>7.2.3</b> Quantitative data</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
@@ -157,8 +168,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>When working on an analysis with R, the recommended workflow is to use <a href="https://r4ds.had.co.nz/workflow-projects.html">R Projects</a>. This is also called <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">“project-oriented workflow”</a> in some other tutorials.</p>
 <p>Projects are nice because they keep all of the data, code, writing, etc. for a particular task in one place. You don’t have to worry about working directories and reproducibility is more straightforward. It allows you to use relative versus absolute pathnames, this is awesome when working with collaborators.</p>
 <p>Let’s make a project for this workshop!</p>
-<div id="set-up-your-project" class="section level2">
-<h2><span class="header-section-number">3.1</span> Set up your project</h2>
+<div id="set-up-your-project-cloud" class="section level2">
+<h2><span class="header-section-number">3.1</span> Set up your project: Cloud</h2>
+<p>In your RStudio cloud workspace, click the <code>New Project</code> button to start a project. Once it is open, you can name it by <code>Untitled Project</code> where it says <code>Your Workspace/Untitled Project</code> at the top of the screen. Name it something short but meaningful with no spaces or special characters except <code>-</code> or <code>_</code>.</p>
+</div>
+<div id="set-up-your-project-desktop" class="section level2">
+<h2><span class="header-section-number">3.2</span> Set up your project: Desktop</h2>
 <p>In the upper right corner of your RStudio window, you’ll see <code>Project: (None)</code>. Click on that, then select <code>New Project...</code>. Next select <code>New Directory</code>.</p>
 <p><img src="images/03-03-newproject.png" width="334" /></p>
 <p>Then select <code>New Project</code> from the list of options.</p>
@@ -212,7 +227,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["met-council-introR.pdf", "met-council-introR.epub"],
+"download": ["met-council-introR.epub"],
 "toc": {
 "collapse": "subsection"
 }
