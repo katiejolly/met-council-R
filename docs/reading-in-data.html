@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,8 +138,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="visualization.html"><a href="visualization.html#practice-1"><i class="fa fa-check"></i><b>7.3</b> Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
-<li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
+<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#row-verbs"><i class="fa fa-check"></i><b>8.1</b> Row verbs</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> Filter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a><ul>
+<li class="chapter" data-level="9.1" data-path="visualization-revisited.html"><a href="visualization-revisited.html#facets"><i class="fa fa-check"></i><b>9.1</b> Facets</a></li>
+<li class="chapter" data-level="9.2" data-path="visualization-revisited.html"><a href="visualization-revisited.html#practice-2"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
 <li class="chapter" data-level="11" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>11</b> Reading in data, revisited</a></li>
 <li class="chapter" data-level="12" data-path="more-resources.html"><a href="more-resources.html"><i class="fa fa-check"></i><b>12</b> More resources</a><ul>
@@ -204,44 +211,81 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We can also print the first 6 rows of the data with the <code>head()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
 <pre><code>## # A tibble: 6 x 22
-##   tripduration start_datetime      end_datetime        start_station_id start_station_n~ start_station_l~ start_station_l~ end_station_id end_station_name
-##          &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;                         &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;           
-## 1         1373 2018-04-24 16:03:04 2018-04-24 16:25:57              170 Boom Island Park             45.0            -93.3              2 100 Main Street~
-## 2         1730 2018-04-24 16:38:40 2018-04-24 17:07:31                2 100 Main Street~             45.0            -93.3             13 North 2nd Stree~
-## 3          547 2018-04-24 17:51:10 2018-04-24 18:00:17               13 North 2nd Stree~             45.0            -93.3             94 Portland Ave &amp; ~
-## 4          856 2018-04-24 18:50:05 2018-04-24 19:04:22               94 Portland Ave &amp; ~             45.0            -93.3             13 North 2nd Stree~
-## 5          455 2018-04-25 08:49:05 2018-04-25 08:56:40               13 North 2nd Stree~             45.0            -93.3             43 Nicollet Mall &amp;~
-## 6         1557 2018-04-27 11:57:03 2018-04-27 12:23:01               43 Nicollet Mall &amp;~             45.0            -93.3            167 11th Ave S &amp; S ~
-## # ... with 13 more variables: end_station_latitude &lt;dbl&gt;, end_station_longitude &lt;dbl&gt;, bikeid &lt;dbl&gt;, usertype &lt;chr&gt;, birth_year &lt;dbl&gt;, gender &lt;dbl&gt;,
-## #   bike_type &lt;chr&gt;, start_month &lt;dbl&gt;, start_day &lt;ord&gt;, end_month &lt;dbl&gt;, end_day &lt;ord&gt;, start_hour &lt;int&gt;, end_hour &lt;int&gt;</code></pre>
+##   tripduration start_datetime      end_datetime        start_station_id
+##          &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;                         &lt;dbl&gt;
+## 1         1373 2018-04-24 16:03:04 2018-04-24 16:25:57              170
+## 2         1730 2018-04-24 16:38:40 2018-04-24 17:07:31                2
+## 3          547 2018-04-24 17:51:10 2018-04-24 18:00:17               13
+## 4          856 2018-04-24 18:50:05 2018-04-24 19:04:22               94
+## 5          455 2018-04-25 08:49:05 2018-04-25 08:56:40               13
+## 6         1557 2018-04-27 11:57:03 2018-04-27 12:23:01               43
+## # ... with 18 more variables: start_station_name &lt;chr&gt;,
+## #   start_station_latitude &lt;dbl&gt;, start_station_longitude &lt;dbl&gt;,
+## #   end_station_id &lt;dbl&gt;, end_station_name &lt;chr&gt;,
+## #   end_station_latitude &lt;dbl&gt;, end_station_longitude &lt;dbl&gt;, bikeid &lt;dbl&gt;,
+## #   usertype &lt;chr&gt;, birth_year &lt;dbl&gt;, gender &lt;dbl&gt;, bike_type &lt;chr&gt;,
+## #   start_month &lt;dbl&gt;, start_day &lt;ord&gt;, end_month &lt;dbl&gt;, end_day &lt;ord&gt;,
+## #   start_hour &lt;int&gt;, end_hour &lt;int&gt;</code></pre>
 <p>How can we modify this code to print the first <strong>10</strong> rows instead? (hint: <code>help(head)</code> to see the documentation)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nice_ride_<span class="dv">2018</span>, <span class="dt">__ =</span> ___)</code></pre></div>
 <p>We can also just get a summary of each variable.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(nice_ride_<span class="dv">2018</span>)</code></pre></div>
-<pre><code>##   tripduration   start_datetime                 end_datetime                 start_station_id start_station_name start_station_latitude start_station_longitude
-##  Min.   :   61   Min.   :2018-04-12 08:49:49   Min.   :2018-04-12 09:31:20   Min.   :  2.0    Length:409002      Min.   :44.89          Min.   :-93.33         
-##  1st Qu.:  432   1st Qu.:2018-06-08 15:02:34   1st Qu.:2018-06-08 15:34:45   1st Qu.: 37.0    Class :character   1st Qu.:44.96          1st Qu.:-93.27         
-##  Median :  800   Median :2018-07-18 08:40:36   Median :2018-07-18 08:54:47   Median : 94.0    Mode  :character   Median :44.97          Median :-93.26         
-##  Mean   : 1275   Mean   :2018-07-20 03:50:06   Mean   :2018-07-20 04:11:22   Mean   :103.4                       Mean   :44.97          Mean   :-93.25         
-##  3rd Qu.: 1524   3rd Qu.:2018-08-27 20:09:25   3rd Qu.:2018-08-27 20:37:36   3rd Qu.:171.0                       3rd Qu.:44.98          3rd Qu.:-93.23         
-##  Max.   :17992   Max.   :2018-11-17 23:13:49   Max.   :2018-11-17 23:19:36   Max.   :226.0                       Max.   :45.04          Max.   :-93.08         
-##                                                                              NA&#39;s   :13251                                                                     
-##  end_station_id  end_station_name   end_station_latitude end_station_longitude     bikeid       usertype           birth_year       gender        bike_type        
-##  Min.   :  2.0   Length:409002      Min.   :44.89        Min.   :-93.35        Min.   :   2   Length:409002      Min.   :1911   Min.   :0.0000   Length:409002     
-##  1st Qu.: 38.0   Class :character   1st Qu.:44.96        1st Qu.:-93.27        1st Qu.: 530   Class :character   1st Qu.:1969   1st Qu.:0.0000   Class :character  
-##  Median : 95.0   Mode  :character   Median :44.97        Median :-93.26        Median :1056   Mode  :character   Median :1969   Median :1.0000   Mode  :character  
-##  Mean   :103.6                      Mean   :44.97        Mean   :-93.25        Mean   :1092                      Mean   :1976   Mean   :0.7097                     
-##  3rd Qu.:170.0                      3rd Qu.:44.98        3rd Qu.:-93.23        3rd Qu.:1627                      3rd Qu.:1986   3rd Qu.:1.0000                     
-##  Max.   :226.0                      Max.   :45.04        Max.   :-93.08        Max.   :3341                      Max.   :2000   Max.   :2.0000                     
-##  NA&#39;s   :13251                                                                                                                                                     
-##   start_month     start_day     end_month      end_day       start_hour       end_hour    
-##  Min.   : 4.000   Sun:62998   Min.   : 4.000   Sun:63368   Min.   : 0.00   Min.   : 0.00  
-##  1st Qu.: 6.000   Mon:52558   1st Qu.: 6.000   Mon:52638   1st Qu.:11.00   1st Qu.:11.00  
-##  Median : 7.000   Tue:51657   Median : 7.000   Tue:51585   Median :15.00   Median :15.00  
-##  Mean   : 7.102   Wed:56859   Mean   : 7.102   Wed:56843   Mean   :14.26   Mean   :14.46  
-##  3rd Qu.: 8.000   Thu:57657   3rd Qu.: 8.000   Thu:57670   3rd Qu.:18.00   3rd Qu.:18.00  
-##  Max.   :11.000   Fri:60495   Max.   :11.000   Fri:60193   Max.   :23.00   Max.   :23.00  
-##                   Sat:66778                    Sat:66705</code></pre>
+<pre><code>##   tripduration   start_datetime               
+##  Min.   :   61   Min.   :2018-04-12 08:49:49  
+##  1st Qu.:  432   1st Qu.:2018-06-08 15:02:34  
+##  Median :  800   Median :2018-07-18 08:40:36  
+##  Mean   : 1275   Mean   :2018-07-20 03:50:06  
+##  3rd Qu.: 1524   3rd Qu.:2018-08-27 20:09:25  
+##  Max.   :17992   Max.   :2018-11-17 23:13:49  
+##                                               
+##   end_datetime                 start_station_id start_station_name
+##  Min.   :2018-04-12 09:31:20   Min.   :  2.0    Length:409002     
+##  1st Qu.:2018-06-08 15:34:45   1st Qu.: 37.0    Class :character  
+##  Median :2018-07-18 08:54:47   Median : 94.0    Mode  :character  
+##  Mean   :2018-07-20 04:11:22   Mean   :103.4                      
+##  3rd Qu.:2018-08-27 20:37:36   3rd Qu.:171.0                      
+##  Max.   :2018-11-17 23:19:36   Max.   :226.0                      
+##                                NA&#39;s   :13251                      
+##  start_station_latitude start_station_longitude end_station_id 
+##  Min.   :44.89          Min.   :-93.33          Min.   :  2.0  
+##  1st Qu.:44.96          1st Qu.:-93.27          1st Qu.: 38.0  
+##  Median :44.97          Median :-93.26          Median : 95.0  
+##  Mean   :44.97          Mean   :-93.25          Mean   :103.6  
+##  3rd Qu.:44.98          3rd Qu.:-93.23          3rd Qu.:170.0  
+##  Max.   :45.04          Max.   :-93.08          Max.   :226.0  
+##                                                 NA&#39;s   :13251  
+##  end_station_name   end_station_latitude end_station_longitude
+##  Length:409002      Min.   :44.89        Min.   :-93.35       
+##  Class :character   1st Qu.:44.96        1st Qu.:-93.27       
+##  Mode  :character   Median :44.97        Median :-93.26       
+##                     Mean   :44.97        Mean   :-93.25       
+##                     3rd Qu.:44.98        3rd Qu.:-93.23       
+##                     Max.   :45.04        Max.   :-93.08       
+##                                                               
+##      bikeid       usertype           birth_year       gender      
+##  Min.   :   2   Length:409002      Min.   :1911   Min.   :0.0000  
+##  1st Qu.: 530   Class :character   1st Qu.:1969   1st Qu.:0.0000  
+##  Median :1056   Mode  :character   Median :1969   Median :1.0000  
+##  Mean   :1092                      Mean   :1976   Mean   :0.7097  
+##  3rd Qu.:1627                      3rd Qu.:1986   3rd Qu.:1.0000  
+##  Max.   :3341                      Max.   :2000   Max.   :2.0000  
+##                                                                   
+##   bike_type          start_month     start_day     end_month     
+##  Length:409002      Min.   : 4.000   Sun:62998   Min.   : 4.000  
+##  Class :character   1st Qu.: 6.000   Mon:52558   1st Qu.: 6.000  
+##  Mode  :character   Median : 7.000   Tue:51657   Median : 7.000  
+##                     Mean   : 7.102   Wed:56859   Mean   : 7.102  
+##                     3rd Qu.: 8.000   Thu:57657   3rd Qu.: 8.000  
+##                     Max.   :11.000   Fri:60495   Max.   :11.000  
+##                                      Sat:66778                   
+##  end_day       start_hour       end_hour    
+##  Sun:63368   Min.   : 0.00   Min.   : 0.00  
+##  Mon:52638   1st Qu.:11.00   1st Qu.:11.00  
+##  Tue:51585   Median :15.00   Median :15.00  
+##  Wed:56843   Mean   :14.26   Mean   :14.46  
+##  Thu:57670   3rd Qu.:18.00   3rd Qu.:18.00  
+##  Fri:60193   Max.   :23.00   Max.   :23.00  
+##  Sat:66705</code></pre>
 <p>But you’ll notice these aren’t that meaningful for the character variables. Another way we can extract information about a variable is to use the <code>$</code> operator. To just pull out one variable from a dataset, you would write <code>data$variable</code>. We can use this syntax to make a table of the user types.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>usertype)</code></pre></div>
 <pre><code>## 

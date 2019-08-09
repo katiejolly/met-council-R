@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,8 +138,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="visualization.html"><a href="visualization.html#practice-1"><i class="fa fa-check"></i><b>7.3</b> Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a></li>
-<li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a></li>
+<li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#row-verbs"><i class="fa fa-check"></i><b>8.1</b> Row verbs</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> Filter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a><ul>
+<li class="chapter" data-level="9.1" data-path="visualization-revisited.html"><a href="visualization-revisited.html#facets"><i class="fa fa-check"></i><b>9.1</b> Facets</a></li>
+<li class="chapter" data-level="9.2" data-path="visualization-revisited.html"><a href="visualization-revisited.html#practice-2"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
 <li class="chapter" data-level="11" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>11</b> Reading in data, revisited</a></li>
 <li class="chapter" data-level="12" data-path="more-resources.html"><a href="more-resources.html"><i class="fa fa-check"></i><b>12</b> More resources</a><ul>
@@ -175,7 +182,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="visualization-revisited" class="section level1">
 <h1><span class="header-section-number">Section 9</span> Visualization, revisited</h1>
+<p>Now that we have some wrangling experience, we can create some more complex visualizations. This section will be mostly practice questions, promoting active learning and help-finding.</p>
+<div id="facets" class="section level2">
+<h2><span class="header-section-number">9.1</span> Facets</h2>
+<p>Facets are a way to lay out related plots in a grid. For example, maybe we want to look at hourly patterns by the day of the week.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> start_hour)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="co"># the adjust argument just makes the plots a little smoother</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>start_day) <span class="op">+</span><span class="st"> </span><span class="co"># lay out the plots by the weekday</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="practice-2" class="section level2">
+<h2><span class="header-section-number">9.2</span> Practice</h2>
+<ul>
+<li>Create a plot of the ten most popular start stations for <code>Classic</code> bikes on Saturdays and Sundays.</li>
+</ul>
+<p>Should look like:</p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<ul>
+<li>Create a plot of the ten most popular end stations for <code>Classic</code> bikes on the weekdays.</li>
+</ul>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li>Create</li>
+</ul>
 
+</div>
 </div>
             </section>
 

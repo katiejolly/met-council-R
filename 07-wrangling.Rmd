@@ -67,3 +67,4 @@ dim(weekendFri_trips)
 ```
 
 
+## Practice
