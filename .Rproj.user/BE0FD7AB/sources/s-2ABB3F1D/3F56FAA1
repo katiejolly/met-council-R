@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565646553417.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3F56FAA1",
+    "lastKnownWriteTime" : 1565646424,
+    "last_content_update" : 1565646553417,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "25062EA2",
+        "caption" : "trips_per_day",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=trips_per_day&cache_key=25062EA2",
+        "displayedObservations" : 14,
+        "environment" : "",
+        "object" : "trips_per_day",
+        "preview" : 0,
+        "totalObservations" : 14,
+        "variables" : 3
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

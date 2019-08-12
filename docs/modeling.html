@@ -141,8 +141,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#row-verbs"><i class="fa fa-check"></i><b>8.1</b> Row verbs</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> Filter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#arrange"><i class="fa fa-check"></i><b>8.1.2</b> Arrange</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="data-wrangling.html"><a href="data-wrangling.html#practice-2"><i class="fa fa-check"></i><b>8.2</b> Practice</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling.html"><a href="data-wrangling.html#column-verbs"><i class="fa fa-check"></i><b>8.3</b> Column verbs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>8.3.1</b> Mutate</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a><ul>
 <li class="chapter" data-level="9.1" data-path="visualization-revisited.html"><a href="visualization-revisited.html#facets"><i class="fa fa-check"></i><b>9.1</b> Facets</a></li>
@@ -183,6 +187,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="modeling" class="section level1">
 <h1><span class="header-section-number">Section 10</span> Modeling</h1>
+<p>Rather than an introduction to statistics, I want to walk through how to read R model output. We will make an interaction model with the customer type and day of week.</p>
+<p>R models generally follow the formula style: <code>y ~ b0 + b1x1 + ...</code>. They’re create from function just like everything else. The simplest model is the linear model, <code>lm()</code>.</p>
+<p>Let’s first wrangling the data into the structure we need for modeling.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trips_per_day &lt;-<span class="st"> </span>nice_ride_<span class="dv">2018</span> <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(usertype, start_day) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">trips =</span> <span class="kw">n</span>())</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> trips <span class="op">~</span><span class="st"> </span>usertype <span class="op">*</span><span class="st"> </span><span class="kw">as.character</span>(start_day), <span class="dt">data =</span> trips_per_day)
+
+mod</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = trips ~ usertype * as.character(start_day), data = trips_per_day)
+## 
+## Coefficients:
+##                                   (Intercept)  
+##                                         42221  
+##                            usertypeSubscriber  
+##                                        -23947  
+##                    as.character(start_day)Mon  
+##                                         -7595  
+##                    as.character(start_day)Sat  
+##                                         11880  
+##                    as.character(start_day)Sun  
+##                                          7543  
+##                    as.character(start_day)Thu  
+##                                         -4499  
+##                    as.character(start_day)Tue  
+##                                         -9633  
+##                    as.character(start_day)Wed  
+##                                         -5534  
+## usertypeSubscriber:as.character(start_day)Mon  
+##                                          7253  
+## usertypeSubscriber:as.character(start_day)Sat  
+##                                        -17477  
+## usertypeSubscriber:as.character(start_day)Sun  
+##                                        -12583  
+## usertypeSubscriber:as.character(start_day)Thu  
+##                                          6160  
+## usertypeSubscriber:as.character(start_day)Tue  
+##                                         10428  
+## usertypeSubscriber:as.character(start_day)Wed  
+##                                          7432</code></pre>
 
 </div>
             </section>

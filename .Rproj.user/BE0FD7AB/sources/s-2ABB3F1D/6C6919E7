@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565646325937.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1470140221",
+    "id" : "6C6919E7",
+    "lastKnownWriteTime" : 1565646833,
+    "last_content_update" : 1565646833602,
+    "path" : "~/met-council-R/09-modeling.Rmd",
+    "project_path" : "09-modeling.Rmd",
+    "properties" : {
+        "cursorPosition" : "19,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
