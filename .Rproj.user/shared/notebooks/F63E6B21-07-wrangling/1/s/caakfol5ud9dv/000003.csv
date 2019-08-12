@@ -1,0 +1,16 @@
+"0","knitr::include_graphics(""https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_wrangling.png"")
+"
+"2","Warning messages:
+"
+"2","1: "
+"2","In get_engine(options$engine) :"
+"2","
+ "
+"2"," Unknown language engine 'recho' (must be registered via knit_engines$set()).
+"
+"2","2: "
+"2","In get_engine(options$engine) :"
+"2","
+ "
+"2"," Unknown language engine 'recho' (must be registered via knit_engines$set()).
+"

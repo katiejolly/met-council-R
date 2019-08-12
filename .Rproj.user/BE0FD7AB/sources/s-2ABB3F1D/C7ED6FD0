@@ -13,9 +13,9 @@
     "project_path" : "08-visualization2.Rmd",
     "properties" : {
         "cursorPosition" : "50,9",
-        "scrollLine" : "49"
+        "scrollLine" : "0"
     },
-    "relative_order" : 12,
+    "relative_order" : 5,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

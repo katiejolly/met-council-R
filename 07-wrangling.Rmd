@@ -2,6 +2,11 @@
 
 We will mostly be using the `tidyr` and `dplyr` packages for wrangling. With those packages, most wrangling is done with 6 "data verbs." These are `select()`, `mutate()`, `filter()`, `arrange()`, `group_by()`, and `summarise()`. One quick note: summarise can be spelled the British or American way (as can any word with dual spellings). Much of the software was developed by people in New Zealand, hence the British spellings. I learned with British spellings so that's what I use, but it works either way. 
 
+```{r echo = FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_wrangling.png")
+```
+
+
 We can divide our verbs into 3 categories: row verbs, column verbs, and aggregate verbs. 
 
 All of the verbs work in a similar way. The general structure is `verb(data, action)`.
@@ -66,5 +71,31 @@ weekendFri_trips <- filter(nice_ride_2018, start_day %in% c("Sat", "Sun", "Fri")
 dim(weekendFri_trips)
 ```
 
+### Arrange
+
+Arrange is a way to order your dataset by specific variables. 
+
+You can order by just one variable, like duration. 
+
+
 
 ## Practice
+
+1. How many trips were more than 30 minutes long? This is equivalent to 1800 seconds. 
+
+2 (a). How many casual trips were there on Wednesdays, Thursdays, and Fridays?
+
+2 (b) . How many casual trips were there on Wednesdays, Thursdays, and Fridays that were 15 minutes or less?
+
+3. How many dockless trips taken by subscribed users were there total? 
+
+## Column verbs
+
+Now that we've talked about wrangling the rows, we can think about wrangling the columns. `mutate` is used to create new columns, while `select` is used to narrow down the columns you keep in your table. 
+
+### Mutate
+
+```{r echo = FALSE, caption = "Artwork by Allison Horst"}
+knitr::include_graphics("images/dplyr_mutate.png")
+```
+

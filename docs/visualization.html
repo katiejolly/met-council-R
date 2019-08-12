@@ -24,7 +24,7 @@
 <meta name="author" content="Katie Jolly" />
 
 
-<meta name="date" content="2019-08-08" />
+<meta name="date" content="2019-08-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,11 +141,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>8</b> Data Wrangling</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-wrangling.html"><a href="data-wrangling.html#row-verbs"><i class="fa fa-check"></i><b>8.1</b> Row verbs</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>8.1.1</b> Filter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#arrange"><i class="fa fa-check"></i><b>8.1.2</b> Arrange</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-wrangling.html"><a href="data-wrangling.html#practice-2"><i class="fa fa-check"></i><b>8.2</b> Practice</a></li>
+<li class="chapter" data-level="8.3" data-path="data-wrangling.html"><a href="data-wrangling.html#column-verbs"><i class="fa fa-check"></i><b>8.3</b> Column verbs</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>8.3.1</b> Mutate</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="visualization-revisited.html"><a href="visualization-revisited.html"><i class="fa fa-check"></i><b>9</b> Visualization, revisited</a><ul>
 <li class="chapter" data-level="9.1" data-path="visualization-revisited.html"><a href="visualization-revisited.html#facets"><i class="fa fa-check"></i><b>9.1</b> Facets</a></li>
-<li class="chapter" data-level="9.2" data-path="visualization-revisited.html"><a href="visualization-revisited.html#practice-2"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
+<li class="chapter" data-level="9.2" data-path="visualization-revisited.html"><a href="visualization-revisited.html#practice-3"><i class="fa fa-check"></i><b>9.2</b> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="modeling.html"><a href="modeling.html"><i class="fa fa-check"></i><b>10</b> Modeling</a></li>
 <li class="chapter" data-level="11" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>11</b> Reading in data, revisited</a></li>
@@ -188,16 +193,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.1</span> Base R plotting</h2>
 <p>R can make histograms:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>tripduration) </code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>And bar plots:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>usertype), <span class="dt">main =</span> <span class="st">&quot;User Type&quot;</span>) </code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">table</span>(nice_ride_<span class="dv">2018</span><span class="op">$</span>bike_type), <span class="dt">main =</span> <span class="st">&quot;Bike Type&quot;</span>)</code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-30-2.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 <p>But base R plots are hard to customize and an inconsistent syntax. There’s general agreement that they’re not the best way to plot data in R so we aren’t going to talk much about it.</p>
 </div>
 <div id="ggplot2" class="section level2">
 <h2><span class="header-section-number">7.2</span> ggplot2</h2>
+<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_exploratory.png" /><!-- --></p>
 <p><code>ggplot2</code> is without competiton in the graphics in R world. Not only is it the most popular plotting package, it’s one of the most popular packages, period. It is included in the tidyverse, which we already loaded. Part of the strength of ggplot is its customizability. You can create beautiful plots all in R with it. For example, the map on the cover of this book was <a href="https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/">made with ggplot</a>.</p>
 <p><img src="https://timogrossenbacher.ch/wp-content/uploads/2016/12/tm-final-map-1.png" width="700px" /></p>
 <p>ggplot uses the “grammar of graphics” to layer information onto plots. Each plot has the same general structure which makes it easy once you learn the structure.</p>
@@ -207,19 +213,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>We will layer on the information in stages.</p>
 <p><strong>Stage 1</strong>: The plotting canvas</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>) <span class="co"># set up our plotting area </span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><strong>Stage 2</strong>: Frame your data with axes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="co"># set up our axes</span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><strong>Stage 3</strong>: Add some shapes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>() <span class="co"># add the geoms</span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p><strong>Stage 4</strong>: Give your plot a title and axis labels</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> usertype)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;User Types&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;User Type&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Trips&quot;</span>) <span class="co"># add a title</span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Now we have a plot! There are many ways to customize it, but for now this is a great start.</p>
 </div>
 <div id="try-it-out-2" class="section level3">
@@ -237,7 +243,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">geom____</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">___</span>(<span class="dt">title =</span> ___, <span class="dt">x =</span> ___, <span class="dt">y =</span> ___) <span class="co"># add a title</span></code></pre></div>
 <p>Does your plot look like this?</p>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="quantitative-data" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> Quantitative data</h3>
@@ -245,21 +251,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let’s first recreate the <code>start_month</code> histogram from above.</p>
 <p><strong>Stage 1</strong>: The plotting canvas</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>) <span class="co"># set up our plotting area </span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p><strong>Stage 2</strong>: Frame your data with axes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> tripduration)) <span class="co"># set up our axes</span></code></pre></div>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><strong>Stage 3</strong>: Add some shapes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> tripduration)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() <span class="co"># add the geoms and the total number of geoms that you want</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><strong>Stage 4</strong>: Add a title and axis labels</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(nice_ride_<span class="dv">2018</span>, <span class="kw">aes</span>(<span class="dt">x =</span> tripduration)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="co"># add the geoms</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Durations of trips under 5 hours (in seconds)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Duration (seconds)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Trips&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 </div>
 <div id="practice-1" class="section level2">
@@ -271,7 +277,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Add a caption that says <code>Source: Niceride MN</code></p></li>
 </ol>
 <p>In the end, your plot should look something like this:</p>
-<p><img src="met-council-introR_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="met-council-introR_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 
 </div>
 </div>

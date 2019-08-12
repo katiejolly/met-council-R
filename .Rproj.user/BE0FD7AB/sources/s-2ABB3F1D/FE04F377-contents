@@ -24,6 +24,11 @@ But base R plots are hard to customize and an inconsistent syntax. There's gener
 
 ## ggplot2
 
+```{r echo = FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_exploratory.png")
+```
+
+
 `ggplot2` is without competiton in the graphics in R world. Not only is it the most popular plotting package, it's one of the most popular packages, period. It is included in the tidyverse, which we already loaded. Part of the strength of ggplot is its customizability. You can create beautiful plots all in R with it. For example, the map on the cover of this book was [made with ggplot](https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/).
 
 ```{r out.width="700px", echo=FALSE}
