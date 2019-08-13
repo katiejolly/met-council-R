@@ -7,6 +7,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-il
 ```
 
 
+
 We can divide our verbs into 3 categories: row verbs, column verbs, and aggregate verbs. 
 
 All of the verbs work in a similar way. The general structure is `verb(data, action)`.
@@ -99,3 +100,35 @@ Now that we've talked about wrangling the rows, we can think about wrangling the
 knitr::include_graphics("images/dplyr_mutate.png")
 ```
 
+## Practice
+
+## Aggregate verbs
+
+## Practice
+
+1. Calculate the number of trips for each user type occurred at each start station. The structure should look like the example below:
+
+```{r echo = FALSE}
+nice_ride_2018 %>%
+  group_by(start_station_name, usertype) %>%
+  summarise(trips = n()) %>%
+  head()
+```
+
+
+## Reshaping verbs
+
+### Spread
+
+```{r echo = FALSE}
+knitr::include_graphics("https://garrettgman.github.io/images/tidy-8.png")
+```
+
+
+### Gather
+
+```{r echo = FALSE}
+knitr::include_graphics("https://garrettgman.github.io/images/tidy-9.png")
+```
+
+## Practice
