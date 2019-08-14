@@ -13,6 +13,41 @@ ggplot(nice_ride_2018, aes(x = start_hour)) +
   theme_minimal()
 ```
 
+## Multivariate visualization
+
+For two quantitative variables we can use a scatter plot, in ggplot the geom is `geom_point()`. Another way to summarize these variables would be to use a regression, or `geom_smooth()`. Non-parameteric regression is that default, but you can also superimpose a linear model. 
+
+The ggplot structure is the same, we just now specify both the x and y.
+
+```{r}
+ggplot(nice_ride_2018, aes(x = start_hour, y = tripduration)) +
+  geom_smooth() +
+  theme_minimal()
+```
+
+Another multivariate example is one quantitative and one qualitative. A stacked bar chart could be a good way to show this. We will use user type and week day to explain how to make this chart. We will start where we left off in the first visualization section.
+
+```{r echo = FALSE}
+ggplot(nice_ride_2018, aes(x = start_day)) +
+  geom_bar(fill = "cyan4") +
+  theme_minimal() +
+  labs(title = "What days did people use niceride in 2018? Weekends are a favorite.", x = "Day of the week", y = "Trips", caption = "Source: Niceride MN")
+```
+
+Now, we will create one that differentiates by user type.
+
+First, think about what aesthetic we might be using here. It's not an axis, but it will map to some other way we can display data.
+
+My hint to you is that you will need to remove `fill = ...` from the `geom_bar()` call and think about where else `fill` might go.
+
+```{r echo = FALSE}
+ggplot(nice_ride_2018, aes(x = start_day, fill = usertype)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(title = "What days did people use niceride in 2018? Weekends are a favorite.", x = "Day of the week", y = "Trips", caption = "Source: Niceride MN")
+```
+
+
 
 ## Practice
 

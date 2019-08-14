@@ -100,7 +100,31 @@ Now that we've talked about wrangling the rows, we can think about wrangling the
 knitr::include_graphics("images/dplyr_mutate.png")
 ```
 
+Let's say we want to create a new duration variable that is in minutes instead of seconds. We can divide our old column by 60 to create the new column.
+
+```{r}
+nice_ride_2018 <- mutate(nice_ride_2018, tripduration_min = tripduration / 60)
+
+head(nice_ride_2018$tripduration_min)
+```
+
 ## Practice
+
+The average trip duration in minutes is 21.257 (see code below).
+
+```{r}
+summary(nice_ride_2018$tripduration_min)
+```
+
+Create a new variation called duration_deviation that calculates how far each trip was from the mean. 
+
+```{r echo = FALSE}
+nice_ride_2018 %>%
+  mutate(duration_deviation = tripduration_min - 21.257) %>%
+  select(duration_deviation) %>%
+  head()
+```
+
 
 ## Aggregate verbs
 

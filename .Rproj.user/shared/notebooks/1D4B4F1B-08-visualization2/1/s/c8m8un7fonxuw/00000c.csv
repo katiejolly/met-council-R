@@ -1,4 +1,0 @@
-"0","ggplot(nice_ride_2018, aes(x = start_hour)) +"
-"0","  geom_density(adjust = 1.5) + # the adjust argument just makes the plots a little smoother"
-"0","  facet_wrap(~start_day) + # lay out the plots by the weekday"
-"0","  theme_minimal()"

@@ -1,3 +1,0 @@
-"0","ggplot(nice_ride_2018, aes(x = tripduration)) + "
-"0","  geom_histogram() + # add the geoms"
-"0","  labs(title = ""Durations of trips under 5 hours (in seconds)"", x = ""Duration (seconds)"", y = ""Trips"")"
