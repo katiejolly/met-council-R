@@ -131,3 +131,4 @@ ggplot(nice_ride_2018, aes(x = start_hour, fill = usertype)) +
   labs(title = "Subscribers use Niceride in a predictable commuter pattern", y = "", x = "Start time")
 ```
 
+* On a new plot, make a "map" using the longitude and latitude variables as a scatter plot

@@ -15,3 +15,28 @@
 There's a long (and not very productive) history of tension between the tidyverse (packages we have discussed in this document) and other frameworks. One of the most prominent alternatives is `data.table`, and I'm showing my bias by calling it an alternative. 
 
 `data.table` is certainly the faster and more computationally efficient framework, but I think you lose the readability and predictable structure of the tidyverse. There is also far more functionality built off of the tidyverse than data.table. If you ask someone at Metro Transit, they will probably argue that there's with competition to data.table. If you use R for very large data, it may be worth learning data.table at some point. 
+
+## Keyboard shortcuts
+
+(These are specific to Windows but their translations work on Macs)
+
+* Insert a new chunk: *ctrl + alt + i*
+
+* Run current line/selection: *ctrl + enter*
+
+* Run current chunk: *ctrl + alt + c*
+
+* Open a dataset to view: *ctrl + click on dataset name in code*
+
+> For example, if I wanted to open a dataset called x and I had code for x <- filter(x, ...) I could click on the first x to open it
+
+* Knit markdown: *ctrl + shift + k*
+
+* Interrupt currently executing command: *esc*
+
+* Clear console: *ctrl + l*
+
+* Open new R script: *ctrl + shift + n*
+
+
+[Complete List](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts) available online!
