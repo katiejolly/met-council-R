@@ -210,18 +210,48 @@ nice_ride_2018 %>%
 
 ### Spread
 
+`spread()` takes two columns (key & value), and spreads into multiple columns: it makes “long” data wider.
+
 ```{r echo = FALSE}
 knitr::include_graphics("https://garrettgman.github.io/images/tidy-8.png")
+```
+
+We can spread the data so that we have a column for the number of users of different types at each station. First we can group the data to calculate that number though (your answer from above).
+
+```{r}
+user_types <- nice_ride_2018 %>%
+  group_by(start_station_name, usertype) %>%
+  summarise(trips = n()) %>%
+  spread(key = "usertype", value = "trips")
+
+head(user_types)
 ```
 
 
 ### Gather
 
+`gather()` takes multiple columns, and gathers them into key-value pairs: it makes “wide” data longer.
+
 ```{r echo = FALSE}
 knitr::include_graphics("https://garrettgman.github.io/images/tidy-9.png")
 ```
 
+Let's say we got the data in the above form (a variable for each user type) and instead want it in a long format. We can use `gather()` to go the other way.
+
+```{r}
+user_types_long <- user_types %>%
+  gather(key = "usertype", value = "trips", 2:3) # specify which columns you want, this reads "1 to 2"
+
+user_types_long
+```
+
+
 ## Practice
+
+* Calculate the number of trips by gender and then spread that dataframe so that you have a column for each of the inputs
+
+* Then gather that back to its original format
+
 
 ## Joins
 

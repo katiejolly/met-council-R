@@ -92,6 +92,6 @@ table(nice_ride_2018$usertype)
 
 3. Looking at the documentation, why might an end station name be empty?
 
-4. Looking at the documentation, what is the unit of the `tripduration` variable empty?
+4. Looking at the documentation, what is the unit of the `tripduration` variable?
 
 5. What kinds of trips are excluded from this data?
