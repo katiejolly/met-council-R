@@ -194,7 +194,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="visualization-revisited.html"><a href="visualization-revisited.html#multivariate-visualization"><i class="fa fa-check"></i><b>9.2</b> Multivariate visualization</a></li>
 <li class="chapter" data-level="9.3" data-path="visualization-revisited.html"><a href="visualization-revisited.html#practice-7"><i class="fa fa-check"></i><b>9.3</b> Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>10</b> Reading in data, revisited</a></li>
+<li class="chapter" data-level="10" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html"><i class="fa fa-check"></i><b>10</b> Reading in data, revisited</a><ul>
+<li class="chapter" data-level="10.1" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html#rectangular-data"><i class="fa fa-check"></i><b>10.1</b> Rectangular data</a></li>
+<li class="chapter" data-level="10.2" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html#data-from-other-statistical-software"><i class="fa fa-check"></i><b>10.2</b> Data from other statistical software</a></li>
+<li class="chapter" data-level="10.3" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html#gis-data"><i class="fa fa-check"></i><b>10.3</b> GIS data</a></li>
+<li class="chapter" data-level="10.4" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html#writing-data"><i class="fa fa-check"></i><b>10.4</b> Writing data</a></li>
+<li class="chapter" data-level="10.5" data-path="reading-in-data-revisited.html"><a href="reading-in-data-revisited.html#cleaning-data"><i class="fa fa-check"></i><b>10.5</b> Cleaning data</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="more-resources.html"><a href="more-resources.html"><i class="fa fa-check"></i><b>11</b> More resources</a><ul>
 <li class="chapter" data-level="11.1" data-path="more-resources.html"><a href="more-resources.html#projects-using-this-data"><i class="fa fa-check"></i><b>11.1</b> Projects using this data</a></li>
 <li class="chapter" data-level="11.2" data-path="more-resources.html"><a href="more-resources.html#general-r-programming"><i class="fa fa-check"></i><b>11.2</b> General R Programming</a></li>
@@ -232,7 +238,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="reading-in-data-revisited" class="section level1">
 <h1><span class="header-section-number">Section 10</span> Reading in data, revisited</h1>
+<p>R can read data from text files (this includes csv, tsv, txt, etc.) as well as from other statistical software like Excel, SAS, Stata etc.</p>
+<div id="rectangular-data" class="section level2">
+<h2><span class="header-section-number">10.1</span> Rectangular data</h2>
+<p>For reading in rectangular text data, <code>readr</code> is your best bet. For a csv, your code would look like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(...)</a></code></pre></div>
+</div>
+<div id="data-from-other-statistical-software" class="section level2">
+<h2><span class="header-section-number">10.2</span> Data from other statistical software</h2>
+<p>The <code>haven</code> package is best for reading in data from SAS, Stata, and SPSS. The <code>readxl</code> package works for all excel files, including options for sheets and things like that.</p>
+</div>
+<div id="gis-data" class="section level2">
+<h2><span class="header-section-number">10.3</span> GIS data</h2>
+<p>Packages like <code>sf</code> and <code>raster</code> work for importing/writing vector and raster data, respectively.</p>
+</div>
+<div id="writing-data" class="section level2">
+<h2><span class="header-section-number">10.4</span> Writing data</h2>
+<p>As well as reading in a variety of different data formats, R can also write to these formats.</p>
+</div>
+<div id="cleaning-data" class="section level2">
+<h2><span class="header-section-number">10.5</span> Cleaning data</h2>
+<p>Along with wrangling, there are a few packages that help with the data reading process. <a href="https://github.com/sfirke/janitor">janitor</a> is one of my favorites. I like the <code>clean_names()</code> function a lot because it will automatically make your column names easily machine readable (no spaces, special characters, etc).</p>
 
+</div>
 </div>
             </section>
 

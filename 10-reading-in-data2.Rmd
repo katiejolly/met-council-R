@@ -1,1 +1,28 @@
 # Reading in data, revisited
+
+R can read data from text files (this includes csv, tsv, txt, etc.) as well as from other statistical software like Excel, SAS, Stata etc.
+
+## Rectangular data
+
+For reading in rectangular text data, `readr` is your best bet. For a csv, your code would look like:
+
+```{r eval = FALSE}
+data <- read_csv(...)
+```
+
+
+## Data from other statistical software
+
+The `haven` package is best for reading in data from SAS, Stata, and SPSS. The `readxl` package works for all excel files, including options for sheets and things like that.
+
+## GIS data
+
+Packages like `sf` and `raster` work for importing/writing vector and raster data, respectively.
+
+## Writing data
+
+As well as reading in a variety of different data formats, R can also write to these formats. 
+
+## Cleaning data 
+
+Along with wrangling, there are a few packages that help with the data reading process. [janitor](https://github.com/sfirke/janitor) is one of my favorites. I like the `clean_names()` function a lot because it will automatically make your column names easily machine readable (no spaces, special characters, etc). 
